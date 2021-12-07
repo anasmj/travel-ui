@@ -159,93 +159,90 @@ class ActivityDetails extends StatelessWidget {
       );
 
   Widget getDestinationPicture(BuildContext context, Destination destination) {
-    return Hero(
-      tag: destination.imageUrl,
-      child: Container(
-        height: MediaQuery.of(context).size.width,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(destination.imageUrl),
-            fit: BoxFit.cover,
-          ),
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(20.0),
-            bottomRight: Radius.circular(20.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                blurRadius: 2.0,
-                spreadRadius: 2.0,
-                offset: const Offset(0, 3))
-          ],
+    return Container(
+      height: MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(destination.imageUrl),
+          fit: BoxFit.cover,
         ),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                          onTap: () => Navigator.pop(context),
-                          child: const Icon(FontAwesomeIcons.arrowLeft)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: const [
-                          Icon(Icons.search),
-                          SizedBox(
-                            width: 15.0,
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(20.0),
+          bottomRight: Radius.circular(20.0),
+        ),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              blurRadius: 2.0,
+              spreadRadius: 2.0,
+              offset: const Offset(0, 3))
+        ],
+      ),
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: const Icon(FontAwesomeIcons.arrowLeft)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: const [
+                        Icon(Icons.search),
+                        SizedBox(
+                          width: 15.0,
+                        ),
+                        Icon(Icons.menu),
+                      ],
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          destination.name,
+                          style: const TextStyle(
+                              fontSize: 28,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: .005),
+                        ),
+                        Row(children: [
+                          const Icon(
+                            FontAwesomeIcons.locationArrow,
+                            size: 14.0,
+                            color: Colors.white,
                           ),
-                          Icon(Icons.menu),
-                        ],
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                          const SizedBox(
+                            width: 10.0,
+                          ),
                           Text(
-                            destination.name,
+                            destination.city,
                             style: const TextStyle(
-                                fontSize: 28,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: .005),
-                          ),
-                          Row(children: [
-                            const Icon(
-                              FontAwesomeIcons.locationArrow,
-                              size: 14.0,
                               color: Colors.white,
                             ),
-                            const SizedBox(
-                              width: 10.0,
-                            ),
-                            Text(
-                              destination.city,
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                          ])
-                        ],
-                      ),
-                      const Icon(Icons.location_city, color: Colors.white),
-                    ],
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+                          ),
+                        ]),
+                      ],
+                    ),
+                    const Icon(Icons.location_city, color: Colors.white),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

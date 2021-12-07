@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travel_ui/models/destination_model.dart';
 import 'package:travel_ui/models/hotel_model.dart';
 import 'package:travel_ui/screens/activity_details_screen/activity_details.dart';
@@ -125,22 +126,58 @@ class HomeScreen extends StatelessWidget {
                       )),
                   Align(
                     alignment: Alignment.topCenter,
-                    child: Hero(
-                      tag: destination.imageUrl,
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(destination.imageUrl),
-                            fit: BoxFit.cover,
+                    child: Stack(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(destination.imageUrl),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.orangeAccent,
                           ),
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.orangeAccent,
+                          //margin: const EdgeInsets.all(6.0),
+                          height: 220,
+                          //width: 220,
                         ),
-                        //margin: const EdgeInsets.all(6.0),
-                        height: 220,
-                        //width: 220,
-                      ),
+                        Padding(
+                          //padding: const EdgeInsets.fromLTRB(30, 160, 0, 0),
+                          padding: const EdgeInsets.only(left: 30, top: 160),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  destination.name,
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 22),
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(
+                                    FontAwesomeIcons.locationArrow,
+                                    color: Colors.white,
+                                    size: 14.0,
+                                  ),
+                                  const SizedBox(
+                                    width: 10.0,
+                                  ),
+                                  Flexible(
+                                    child: Text(
+                                      destination.city,
+                                      style:
+                                          const TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
