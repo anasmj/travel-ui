@@ -114,7 +114,6 @@ class ActivityDetails extends StatelessWidget {
                             width: 80,
                             child: Center(
                                 child: Text(activity.startTimes[0].toString())),
-                            //child: Center(child: Text('activity')),
                           ),
                           const SizedBox(
                             width: 8.0,
@@ -137,7 +136,7 @@ class ActivityDetails extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(280, 40, 5, 5),
+            padding: const EdgeInsets.fromLTRB(330, 40, 5, 5),
             child: Column(
               children: [
                 Text(

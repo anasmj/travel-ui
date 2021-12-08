@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/images/tourist_places/
     - assets/images/hotels/
+    - assets/images/activities/
 
 
 
